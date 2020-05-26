@@ -89,3 +89,19 @@ sys_uptime(void)
   release(&tickslock);
   return xticks;
 }
+
+int
+sys_count(void)
+{
+  return count();
+}
+
+int
+sys_countPar(void)
+{
+  int num;
+
+  if(argint(0, &num) < 0)
+    return -1;
+  return countPar(num);
+}

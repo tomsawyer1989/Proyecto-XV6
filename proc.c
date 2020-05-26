@@ -15,6 +15,30 @@ struct {
 static struct proc *initproc;
 
 int nextpid = 1;
+
+int countCalls = 0;
+int countFork = 0;
+int countExit = 0;
+int countWait = 0;
+int countPipe = 0;
+int countRead = 0;
+int countKill = 0;
+int countExec = 0;
+int countFstat = 0;
+int countChdir = 0;
+int countDup = 0;
+int countGetpid = 0;
+int countSbrk = 0;
+int countSleep = 0;
+int countUptime = 0;
+int countOpen = 0;
+int countWrite = 0;
+int countMknod = 0;
+int countUnlink = 0;
+int countLink = 0;
+int countMkdir = 0;
+int countClose = 0;
+
 extern void forkret(void);
 extern void trapret(void);
 
@@ -531,4 +555,83 @@ procdump(void)
     }
     cprintf("\n");
   }
+}
+
+int
+count()
+{
+	cprintf("Se han realizado %d llamadas al sistema\n", countCalls);
+        cprintf("Fork --- %d\n", countFork);
+	cprintf("Exit --- %d\n", countExit);
+	cprintf("Wait --- %d\n", countWait);
+	cprintf("Pipe --- %d\n", countPipe);
+	cprintf("Read --- %d\n", countRead);
+	cprintf("Kill --- %d\n", countKill);
+	cprintf("Exec --- %d\n", countExec);
+	cprintf("Fstat --- %d\n", countFstat);
+	cprintf("Chdir --- %d\n", countChdir);
+	cprintf("Dup --- %d\n", countDup);
+	cprintf("Getpid --- %d\n", countGetpid);
+	cprintf("Sbrk --- %d\n", countSbrk);
+	cprintf("Sleep --- %d\n", countSleep);
+	cprintf("Uptime --- %d\n", countUptime);
+	cprintf("Open --- %d\n", countOpen);
+	cprintf("Write --- %d\n", countWrite);
+	cprintf("Mknod --- %d\n", countMknod);
+	cprintf("Unlink --- %d\n", countUnlink);
+	cprintf("Link --- %d\n", countLink);
+	cprintf("Mkdir --- %d\n", countMkdir);
+	cprintf("Close --- %d\n", countClose);
+	return 22;
+}
+
+int
+countPar(int num)
+{
+	if(num == 1){
+		cprintf("Fork --- %d\n", countFork);
+	}else if(num == 2){
+		cprintf("Exit --- %d\n", countExit);
+	}else if(num == 3){
+		cprintf("Wait --- %d\n", countWait);
+	}else if(num == 4){
+		cprintf("Pipe --- %d\n", countPipe);
+	}else if(num == 5){
+		cprintf("Read --- %d\n", countRead);
+	}else if(num == 6){
+        	cprintf("Kill --- %d\n", countKill);
+	}else if(num == 7){
+        	cprintf("Exec --- %d\n", countExec);
+	}else if(num == 8){
+        	cprintf("Fstat --- %d\n", countFstat);
+	}else if(num == 9){
+        	cprintf("Chdir --- %d\n", countChdir);
+	}else if(num == 10){
+        	cprintf("Dup --- %d\n", countDup);
+	}else if(num == 11){
+        	cprintf("Getpid --- %d\n", countGetpid);
+	}else if(num == 12){
+        	cprintf("Sbrk --- %d\n", countSbrk);
+	}else if(num == 13){
+        	cprintf("Sleep --- %d\n", countSleep);
+	}else if(num == 14){
+        	cprintf("Uptime --- %d\n", countUptime);
+	}else if(num == 15){
+        	cprintf("Open --- %d\n", countOpen);
+	}else if(num == 16){
+        	cprintf("Write --- %d\n", countWrite);
+	}else if(num == 17){
+        	cprintf("Mknod --- %d\n", countMknod);
+	}else if(num == 18){
+        	cprintf("Unlink --- %d\n", countUnlink);
+	}else if(num == 19){
+        	cprintf("Link --- %d\n", countLink);
+	}else if(num == 20){
+        	cprintf("Mkdir --- %d\n", countMkdir);
+	}else if(num == 21){
+        	cprintf("Close --- %d\n", countClose);
+	}else if(num == 22){
+        	cprintf("Close --- %d\n", countCalls);
+	}
+	return 23;
 }
